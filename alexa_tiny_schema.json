@@ -1,0 +1,38 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "UserName",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ],
+      "intent": "CreateGuestUserIntent"
+    }
+  ]
+}
+
+
+UJ DEV
+
+{
+    "languageModel": {
+        "invocationName": "network admin",
+        "intents": [
+            {
+                "name": "CreateGuestUserIntent",
+                "slots": [
+                    {
+                        "name": "UserName",
+                        "type": "AMAZON.US_FIRST_NAME"
+                    }
+                ],
+                "samples": [
+                    "add user {UserName}",
+                    "create user {UserName}"
+                ]
+            }
+        ],
+        "types": []
+    }
+}

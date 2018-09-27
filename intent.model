@@ -1,0 +1,78 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "network admin",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CreateGuestUserIntent",
+                    "slots": [
+                        {
+                            "name": "UserName",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "add user {UserName}",
+                        "create user {UserName}"
+                    ]
+                },
+                {
+                    "name": "WhereIsUserIntent",
+                    "slots": [
+                        {
+                            "name": "UserName",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "where is {UserName}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CreateGuestUserIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent-CreateGuestUserIntent"
+                    },
+                    "slots": [
+                        {
+                            "name": "UserName",
+                            "type": "AMAZON.US_FIRST_NAME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent-CreateGuestUserIntent",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Did you mean {UserName}?"
+                    }
+                ]
+            }
+        ]
+    }
+}
